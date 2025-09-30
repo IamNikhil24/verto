@@ -80,10 +80,13 @@ exports.deleteProduct = async (req, res) => {
   }
 };
 
-// Increase stock quantity
+//increase quantity
 exports.increaseStock = async (req, res) => {
   try {
-    const { quantity } = req.body;
+    let { quantity } = req.body;
+
+    // Convert to number
+    quantity = Number(quantity);
 
     if (!quantity || quantity <= 0) {
       return res.status(400).json({ error: "Quantity must be a positive number" });
@@ -92,14 +95,15 @@ exports.increaseStock = async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (!product) return res.status(404).json({ error: "Product not found" });
 
-    product.stock_quantity += quantity;
+    product.stock_quantity = product.stock_quantity + quantity; // Now addition works properly
     await product.save();
 
-    res.json({ product, updatedBy: req.user.name });
+    res.json({ product });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
 };
+
 
 // Decrease stock quantity
 exports.decreaseStock = async (req, res) => {
