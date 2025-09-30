@@ -60,3 +60,26 @@ Controller: decreaseStock(req, res)
 GET /api/v1/products/low/threshold
 Description: List products below their low-stock threshold
 Controller: getLowStockProducts(req, res)
+
+Setup Instructions
+
+Clone the repository
+git clone https://github.com/IamNikhil24/verto.git
+cd verto
+cd task
+cd backend
+
+Install dependencies
+npm install
+
+Create environment file
+In the root directory, create a file named .env.
+Add required variables, for example:
+PORT=
+MONGO_URI=
+SECRET_KEY=
+
+Run the project
+npx nodemon index
+
+The server will start at http://localhost:9000
