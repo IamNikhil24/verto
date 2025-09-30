@@ -1,3 +1,6 @@
+Link to drive :- https://drive.google.com/drive/folders/1rKZ1-PEiM9vR8-6BRn2vlBYG73mNQ61s
+There is a main video of almost 560 mb the second video is recored as there was a logic issue which I found in 1st video and was fixed in the second video.
+
 Inventory Management System API
 
 A backend API to manage warehouse products.
