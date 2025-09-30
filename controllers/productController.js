@@ -85,7 +85,6 @@ exports.increaseStock = async (req, res) => {
   try {
     let { quantity } = req.body;
 
-    // Convert to number
     quantity = Number(quantity);
 
     if (!quantity || quantity <= 0) {
@@ -95,7 +94,7 @@ exports.increaseStock = async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (!product) return res.status(404).json({ error: "Product not found" });
 
-    product.stock_quantity = product.stock_quantity + quantity; // Now addition works properly
+    product.stock_quantity = product.stock_quantity + quantity;
     await product.save();
 
     res.json({ product });

@@ -1,7 +1,6 @@
 // allowedRoles: array of roles allowed for a route
 const roleMiddleware = (allowedRoles) => {
   return (req, res, next) => {
-    // Make sure authMiddleware ran first
     if (!req.user || !req.user.role) {
       return res.status(401).json({ error: "Unauthorized" });
     }
